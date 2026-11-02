@@ -1,4 +1,5 @@
 # Zpracování dokumentu - automatizace měření kondenzátoru na RLC metru
+# grafy se uloží do složky, odkud jsme vzali CSV soubor!
 #!/usr/bin/env python3
 """
 Zpracování log CSV z R&S LCX200 (Dynamic Impedance Measurement / Logging).
@@ -157,7 +158,7 @@ def hodnoty(df, klic):
     return df[klic].to_numpy(float)
 
 
-def kresli(ax, df, klic, popisek, barva, logy, srf, lin, fmin_graf, ymax_cs=None):
+def kresli(ax, df, klic, popisek, barva, logy, srf, lin, fmin_graf, ymax_cs=None): # grafy se uloží do složky, odkud jsme vzali CSV soubor!
     f = df["f"].to_numpy(float)
     y = hodnoty(df, klic)
     m = f >= fmin_graf
